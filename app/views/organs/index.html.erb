@@ -12,8 +12,6 @@
   <% @organs.each do |organ| %>
     <%= link_to organ_path(organ) do %>
       <div>
-        <%# <%= raise %>
-        <%# <%= organ.photo.key  %>
         <%= organ.organ_type %>
         <%= organ.price %>
       </div>

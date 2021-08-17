@@ -2,7 +2,7 @@
 
 <%# Logo vers Home %>
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "Home", class: "navbar-brand" do %> <%# ! ajouter le PATH ? %>
+  <%= link_to root_path, class: "navbar-brand" do %> <%# ! ajouter le PATH ? %>
     <%= image_tag "main-logo.jpg" %> <%# ! notre logo from assets %>
   <% end %>
 
@@ -15,27 +15,22 @@
 <%# From to Search %>
 <div>Quel organe voulez-vous ?</div>
   <form class="d-flex">
-    <%# <label for="typeDataList" class="form-label">Which organ type?</label> %>
       <input class="form-control" list="typeDatalistOptions" id="typeDataList" placeholder="Choisir un organe">
       <datalist id="typeDatalistOptions">
         <option value="Peu importe...">
         <% Organ::TYPES.each do |organ_type| %>
         <option value=<%=organ_type.capitalize%>>
         <% end %>
-        <%# ! display la liste en dynamique (itérer sur les types) %>
       </datalist>
 
-    <%# <label for="cityDataList" class="form-label">Where? </label> %>
       <input class="form-control" list="cityDatalistOptions" id="cityDataList" placeholder="Choisir une ville">
       <datalist id="cityDatalistOptions">
         <option value="Peu importe...">
         <% Organ::CITIES.each do |city| %>
         <option value=<%=city.capitalize%>>
         <% end %>
-        <%# ! display la liste en dynamique (itérer sur les villes) %>
       </datalist>
 
-    <%# <label for="dayDataList" class="form-label">When? </label> %>
     <input class="form-control me-2" type="search" id="dateDataList" placeholder="Choisir un jour" aria-label="Search">
     <%# ! ajouter calendrier %>
 
@@ -47,19 +42,20 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "Bookings", bookings_path, class: "nav-link" %> <%# ! vérifier le path %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
         </li>
+
         <li class="nav-item dropdown">
-          <%= image_tag "profil pict du user", class: "avatar dropdown-toggle",
-              id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true,
-              'aria-expanded': false %> <%# ! vérifier le lien de l'image %>
+          <%= image_tag "user-photo-example.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown",
+              data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <%= link_to "Bookings", user_path(current_user), class: "dropdown-item" %>
           </div>
         </li>
+
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %> <%# ! vérifier le path %>
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
       <% end %>
     </ul>
