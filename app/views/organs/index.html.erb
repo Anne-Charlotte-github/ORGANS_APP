@@ -1,3 +1,4 @@
+<div><%= render 'shared/banner' %> </div>
 <%# categories %>
 <ul>
   <% Organ::TYPES.each do |organ_type| %>
@@ -6,7 +7,6 @@
     </li>
   <% end %>
 </ul>
-
 <%# cards %>
 <div>
   <% @organs.each do |organ| %>

@@ -2,9 +2,9 @@
 
 <%# Logo vers Home %>
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "Home", organs_path, class: "navbar-brand" do %> <%# ! class: "nav-link" ? %>
-    <%= image_tag "main_logo.jpg" %> <%# ! notre logo from assets %>
-    <% end %>
+  <%= link_to "Home", class: "navbar-brand" do %> <%# ! ajouter le PATH ? %>
+    <%= image_tag "main-logo.jpg" %> <%# ! notre logo from assets %>
+  <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse"
           data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -13,31 +13,33 @@
   </button>
 
 <%# From to Search %>
+<div>Quel organe voulez-vous ?</div>
   <form class="d-flex">
-    <label for="exampleDataList" class="form-label">You need... what type of organ ?</label>
-      <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Choose a type here">
-      <datalist id="datalistOptions">
-        <option value="I do not know">
-        <option value="Heart">
-        <option value="Brain">
-        <option value="Eyes">
+    <%# <label for="typeDataList" class="form-label">Which organ type?</label> %>
+      <input class="form-control" list="typeDatalistOptions" id="typeDataList" placeholder="Choisir un organe">
+      <datalist id="typeDatalistOptions">
+        <option value="Peu importe...">
+        <% Organ::TYPES.each do |organ_type| %>
+        <option value=<%=organ_type.capitalize%>>
+        <% end %>
         <%# ! display la liste en dynamique (itérer sur les types) %>
       </datalist>
 
-    <label for="exampleDataList" class="form-label">Where? </label>
-      <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Choose a city here">
-      <datalist id="datalistOptions">
-        <option value="I do not know">
-        <option value="Lyon">
-        <option value="Bourg-en-Bresse">
-        <option value="Annecy">
+    <%# <label for="cityDataList" class="form-label">Where? </label> %>
+      <input class="form-control" list="cityDatalistOptions" id="cityDataList" placeholder="Choisir une ville">
+      <datalist id="cityDatalistOptions">
+        <option value="Peu importe...">
+        <% Organ::CITIES.each do |city| %>
+        <option value=<%=city.capitalize%>>
+        <% end %>
         <%# ! display la liste en dynamique (itérer sur les villes) %>
       </datalist>
 
-    <input class="form-control me-2" type="search" placeholder="When?" aria-label="Search">
+    <%# <label for="dayDataList" class="form-label">When? </label> %>
+    <input class="form-control me-2" type="search" id="dateDataList" placeholder="Choisir un jour" aria-label="Search">
     <%# ! ajouter calendrier %>
 
-    <button class="btn btn-outline-success" type="submit">Find an organ! </button>
+    <button class="btn btn-gradient" type="submit"> 🔍 </button>
   </form>
 
 <%# User account %>
