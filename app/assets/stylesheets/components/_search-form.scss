@@ -1,0 +1,26 @@
+// From UI Kit Le Wagon
+// HTML à utiliser dispo ici : https://uikit.lewagon.com/documentation#search_form
+// TO DO : diviser la barre en trois (type d'organe, ville, date)
+
+.search-form-control {
+  position: relative;
+}
+
+.search-form-control .btn { // cf component '_button'.scss
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  right: 8px;
+}
+
+.search-form-control .form-control {
+  height: 3.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: 1px solid #E7E7E7;
+}
+
+.search-form-control .form-control:focus {
+  border: 1px solid #1EDD88;
+  outline: none !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
