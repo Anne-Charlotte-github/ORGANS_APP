@@ -5,17 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 Organ.destroy_all
 User.destroy_all
 puts 'Clear db'
 
 organ_type = ['poumon', 'coeur', 'foie', 'pancréas']
 
+user = User.new(email: 'toto@gmail.com', password: '123456', password_confirmation: '123456')
+user.save!
+organ = Organ.new(organ_type: organ_type.sample, city: 'Bourg en Bresse', condition: 'Pas ouf', price: 20.0)
+organ.owner_id = user.id
+organ.save!
+puts "Add user #{user.email}"
+
 10.times do
   user = User.new(email: Faker::Internet.email, password: 'secret_password', password_confirmation: 'secret_password')
   user.save!
-  organ = Organ.new(organ_type: rand(organ_type), city: 'Lyon', condition: 'Pas ouf', price: 20.0)
+  organ = Organ.new(organ_type: organ_type.sample, city: 'Lyon', condition: 'Pas ouf', price: 20.0)
   organ.owner_id = user.id
   organ.save!
   puts "Add user #{user.email}"
