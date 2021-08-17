@@ -1,5 +1,10 @@
 class OrgansController < ApplicationController
   def index
-    @organs = Organ.all
+    organ_type = params[:organ_type]
+    if organ_type.present?
+      @organs = Organ.where(organ_type: organ_type)
+    else
+      @organs = Organ.all
+    end
   end
 end
