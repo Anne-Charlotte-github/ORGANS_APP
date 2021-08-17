@@ -13,10 +13,10 @@
     <%= link_to organ_path(organ) do %>
       <div>
         <%# <%= organ.photo.key %>
-        <%= organ.organ_type.capitalize %><br>
-        <%= organ.condition %><br>
-        <%= organ.city %><br>
-        <%= "#{organ.price} €" %><br>
+        <p><%= organ.organ_type.capitalize %></p><br>
+        <p><%= organ.condition %></p><br>
+        <p><%= organ.city %></p><br>
+        <p><%= "#{organ.price} €" %></p><br>
       </div>
     <% end %>
   <% end %>
@@ -33,7 +33,7 @@
     <%= link_to organ_path(booking.organ) do %>
       <div>
         <%# <%= booking.photo.key %>
-        <%= booking.renting_at %>
+        <p><%= booking.renting_at %></p>
       </div>
     <% end %>
   <% end %>
