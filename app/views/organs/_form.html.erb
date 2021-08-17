@@ -1,0 +1,5 @@
+<%= form_for [ @organ, @booking ] do |f| %>
+  <%= f.label :renting_at %>
+  <%= f.date_field :renting_at %>
+  <%= f.submit %>
+<% end %>

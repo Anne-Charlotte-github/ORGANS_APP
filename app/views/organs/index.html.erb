@@ -1,10 +1,22 @@
+<%# categories %>
+<ul>
+  <% Organ::TYPES.each do |organ_type| %>
+    <li>
+      <%= link_to "#{organ_type.capitalize}", root_path('organ_type' => organ_type) %>
+    </li>
+  <% end %>
+</ul>
+
+<%# cards %>
 <div>
   <% @organs.each do |organ| %>
-    <div>
-    <%= raise %>
-    <%# <%= organ.photo.key  %>
-    <%= organ.organ_type %>
-    <%= organ.price %>
-    </div>
+    <%= link_to organ_path(organ) do %>
+      <div>
+        <%# <%= raise %>
+        <%# <%= organ.photo.key  %>
+        <%= organ.organ_type %>
+        <%= organ.price %>
+      </div>
+    <% end %>
   <% end %>
 </div>
