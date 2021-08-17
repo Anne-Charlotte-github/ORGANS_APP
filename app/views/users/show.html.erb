@@ -1,8 +1,40 @@
-
-<h2><strong>Hello <%= @user.username %>!!!</strong></h2>
-
 <div>
-  <h3>Vos organes(<%= @user.owner_organes.count %>)</h3>
+  <h2><strong>Hello <%= @user.username %>!!!</strong></h2>
 </div>
 
-  <%# @user.bookings %>
+<hr>
+
+<div>
+  <h3>Vos organes🩸(<%= @user.owner_organs.count %>)</h3>
+</div>
+
+<div>
+  <% @user.owner_organs.each do |organ| %>
+    <%= link_to organ_path(organ) do %>
+      <div>
+        <%# <%= organ.photo.key %>
+        <p><%= organ.organ_type.capitalize %></p><br>
+        <p><%= organ.condition %></p><br>
+        <p><%= organ.city %></p><br>
+        <p><%= "#{organ.price} €" %></p><br>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<hr>
+
+<div>
+  <h3>Vos réservations ♥ (<%= @user.customer_bookings.count %>)</h3>
+</div>
+
+<div>
+  <% @user.customer_bookings.each do |booking| %>
+    <%= link_to organ_path(booking.organ) do %>
+      <div>
+        <%# <%= booking.photo.key %>
+        <p><%= booking.renting_at %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
