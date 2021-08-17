@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
     @booking.customer_id = current_user.id
 
     if @booking.save
-      redirect_to organ_path(@organ)
+      redirect_to user_path(current_user.id)
     else
       render("organs/show")
     end
