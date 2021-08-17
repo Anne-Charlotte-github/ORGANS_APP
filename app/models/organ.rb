@@ -3,5 +3,5 @@ class Organ < ApplicationRecord
   has_many :bookings
 
   TYPES = ['poumon', 'coeur', 'foie', 'pancréas', 'rein', 'burnasse']
-
+  CITIES = ['Lyon', 'Bourg en Bresse', 'New-York', 'Guilherand-Granges', 'Mions', 'Soucieu-en-Jarrest']
 end
