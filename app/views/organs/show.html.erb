@@ -1,0 +1,17 @@
+<div>
+  <div>
+    <h2><%= @organ.organ_type %></h2>
+    <p><%= @organ.city %></p>
+  </div>
+  <div>
+  <h2><%= @organ.owner.username %></h2>
+  </div>
+  <div>
+    <h2>Organ informations</h2>
+    <p><%= @organ.condition %></p>
+    <p><%= @organ.price %></p>
+  </div>
+  <div>
+    <%= render 'organs/form' %>
+  </div>
+</div>

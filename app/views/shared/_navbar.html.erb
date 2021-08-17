@@ -18,7 +18,7 @@
     <%# <label for="typeDataList" class="form-label">Which organ type?</label> %>
       <input class="form-control" list="typeDatalistOptions" id="typeDataList" placeholder="Choisir un organe">
       <datalist id="typeDatalistOptions">
-        <option value="Suprenez-moi">
+        <option value="Peu importe...">
         <% Organ::TYPES.each do |organ_type| %>
         <option value=<%=organ_type.capitalize%>>
         <% end %>
@@ -28,7 +28,7 @@
     <%# <label for="cityDataList" class="form-label">Where? </label> %>
       <input class="form-control" list="cityDatalistOptions" id="cityDataList" placeholder="Choisir une ville">
       <datalist id="cityDatalistOptions">
-        <option value="Suprenez-moi">
+        <option value="Peu importe...">
         <% Organ::CITIES.each do |city| %>
         <option value=<%=city.capitalize%>>
         <% end %>
