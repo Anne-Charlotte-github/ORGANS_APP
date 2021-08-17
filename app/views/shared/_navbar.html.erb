@@ -1,31 +1,63 @@
+<%# From modele le Wagon - to do, follow "!" %>
+
+<%# Logo vers Home %>
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "main_logo.jpg" %>
+  <%= link_to "Home", organs_path, class: "navbar-brand" do %> <%# ! class: "nav-link" ? %>
+    <%= image_tag "main_logo.jpg" %> <%# ! notre logo from assets %>
     <% end %>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
+          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
+<%# From to Search %>
+  <form class="d-flex">
+    <label for="exampleDataList" class="form-label">You need... what type of organ ?</label>
+      <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Choose a type here">
+      <datalist id="datalistOptions">
+        <option value="I do not know">
+        <option value="Heart">
+        <option value="Brain">
+        <option value="Eyes">
+        <%# ! display la liste en dynamique (itérer sur les types) %>
+      </datalist>
 
+    <label for="exampleDataList" class="form-label">Where? </label>
+      <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Choose a city here">
+      <datalist id="datalistOptions">
+        <option value="I do not know">
+        <option value="Lyon">
+        <option value="Bourg-en-Bresse">
+        <option value="Annecy">
+        <%# ! display la liste en dynamique (itérer sur les villes) %>
+      </datalist>
+
+    <input class="form-control me-2" type="search" placeholder="When?" aria-label="Search">
+    <%# ! ajouter calendrier %>
+
+    <button class="btn btn-outline-success" type="submit">Find an organ! </button>
+  </form>
+
+<%# User account %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
         <li class="nav-item">
-          <%= link_to "Bookings", "#", class: "nav-link" %>
+          <%= link_to "Bookings", bookings_path, class: "nav-link" %> <%# ! vérifier le path %>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "profil pict du user", class: "avatar dropdown-toggle",
+              id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true,
+              'aria-expanded': false %> <%# ! vérifier le lien de l'image %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %> <%# ! vérifier le path %>
         </li>
       <% end %>
     </ul>
