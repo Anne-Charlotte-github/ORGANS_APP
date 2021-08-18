@@ -62,8 +62,8 @@
 #user {
   display: flex;
   align-items: center;
-  padding-bottom: 8px;
-  border-bottom: .2px solid black;
+  padding-bottom: 10px;
+  border-bottom: .2px solid rgba(128, 128, 128, 0.2);
   h2 {
     margin: 0px;
     margin-left: 10px;
@@ -79,10 +79,41 @@
   width: 360px;
   background-color: white;
   padding: 15px;
+  margin-bottom: 30px;
   border-radius: 10px;
   border: .1px solid rgba(128, 128, 128, 0.3);
 }
 
 .new_booking {
   margin-top: 20px;
+}
+
+.edit_booking {
+  margin-top: 20px;
+}
+
+#information {
+  margin-top: 25px;
+  h3 {
+    font-size: 30px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+  }
+  h4 {
+    margin: 0;
+    font-size: 20px;
+  }
+  p {
+    color: rgb(80, 80, 80);
+    font-size: 18px;
+  }
+  i {
+    width: 40px;
+    text-align: center;
+  }
+}
+
+.information-list {
+  display: flex;
 }

@@ -30,12 +30,6 @@ class OrgansController < ApplicationController
   end
 
   def owner_rating
-    rated_bookings = current_user.customer_bookings.reject { |booking| booking.rating.nil? }
-    ratings = rated_bookings.map(&:rating)
-    if ratings == []
-      @rating_owner = 0
-    else
-      @rating_owner = (ratings.sum / ratings.count).round(2)
-    end
+    'toto'
   end
 end
