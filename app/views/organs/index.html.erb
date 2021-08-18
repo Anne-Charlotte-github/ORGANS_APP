@@ -1,12 +1,16 @@
 <div><%= render 'shared/banner' %> </div>
 <%# categories %>
-<ul>
+
+<div class="container category-container">
   <% Organ::TYPES.each do |organ_type| %>
-    <li>
+    <div class='card-category'>
+      <%= image_tag "organs_picto/coeur.svg" %>
       <%= link_to "#{organ_type.capitalize}", root_path('organ_type' => organ_type) %>
-    </li>
+    </div>
   <% end %>
-</ul>
+</div>
+
+
 <%# cards %>
 <div>
   <% @organs.each do |organ| %>
