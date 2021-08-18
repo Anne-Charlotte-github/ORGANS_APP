@@ -1,0 +1,88 @@
+#organ-title {
+  margin-top: 50px;
+  h2 {
+    font-size: 45px;
+    font-weight: 800;
+  }
+}
+
+.organ-title-rating {
+  display: flex;
+  p {
+    padding-right: 5px;
+  }
+}
+
+#booking-card-head {
+  display: flex;
+  justify-content: space-between;
+  p {
+    margin-bottom: 0px;
+  }
+}
+
+#price {
+  h3 {
+    font-size: 25px;
+    font-weight: 800;
+    margin: 0;
+    margin-right: 5px;
+  }
+  p {
+    color: gray;
+    font-size: 18px;
+    margin: 0;
+    margin-top: auto;
+  }
+}
+
+#imge-grid {
+  display: grid;
+  grid-template-columns: [first] auto [col2-start] 360px [end];
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  img {
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .2);
+  }
+}
+
+#content {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#organ-info {
+  width: 730px;
+}
+#user {
+  display: flex;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: .2px solid black;
+  h2 {
+    margin: 0px;
+    margin-left: 10px;
+    font-size: 22px;
+  }
+  p {
+    margin: 0px;
+    margin-left: auto;
+  }
+}
+
+#booking-card {
+  width: 360px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  border: .1px solid rgba(128, 128, 128, 0.3);
+}
+
+.new_booking {
+  margin-top: 20px;
+}

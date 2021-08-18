@@ -1,29 +1,45 @@
 <div class='container'>
-  <div>
-    <h2><%= @organ.organ_type %></h2>
-    <div>
-      <div>
-        <p>⭐<%= @rating %></p>
-        <p>(<%= @ratings.count %> <%= @ratings.count <= 1 ? 'commentaire' : 'commentaires' %>)</p>
-      </div>
-      <p><%= @organ.city %></p>
+  <div id='organ-title'>
+    <h2><%= @organ.organ_type.capitalize %></h2>
+    <div class='organ-title-rating'>
+      <p>⭐<%= @rating_organ %></p>
+      <p>(<%= @ratings.count %> <%= @ratings.count <= 1 ? 'commentaire' : 'commentaires' %>)</p>
+      <p> • <%= @organ.city %></p>
     </div>
   </div>
-  <div>
-  <h2><%= @organ.owner.username %></h2>
+  <div id='imge-grid'>
+    <img src="https://picsum.photos/730/420" alt="">
+    <div>
+      <img src="https://picsum.photos/360/200" alt="">
+      <img src="https://picsum.photos/360/200" alt="">
+    </div>
   </div>
-  <div>
-    <h2>Organ informations</h2>
-    <p><%= @organ.condition %></p>
-    <p><%= "#{@organ.price} €" %></p>
-  </div>
-  <div>
-    <% if @organ.owner_id != current_user.id %>
-      <%= form_for [ @organ, @booking ] do |f| %>
-        <%= f.date_field :renting_at, min: Date.today %>
-        <%= f.submit "Book" %>
+  <div id='content'>
+    <div id='organ-info'>
+      <div id='user'>
+        <img class='avatar' src="https://picsum.photos/40/40" alt="">
+        <h2><%= @organ.owner.username.capitalize %></h2>
+        <p>⭐<%= @rating_owner %></p>
+      </div>
+      <div>
+        <h2>Organ informations</h2>
+        <p><%= @organ.condition %></p>
+      </div>
+    </div>
+    <div id='booking-card'>
+      <div id='booking-card-head'>
+        <div class='organ-title-rating' id='price'>
+          <h3><%= "#{@organ.price}€" %></h3>
+          <p>/jour</p>
+        </div>
+      </div>
+      <% if @organ.owner_id != current_user.id %>
+        <%= form_for [ @organ, @booking ] do |f| %>
+          <%= f.date_field :renting_at, min: Date.today %>
+          <%= f.submit "Book" %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
   <div>
     <% if @user_booking && @user_booking.organ_id == @organ.id && !@user_booking.rating %>
