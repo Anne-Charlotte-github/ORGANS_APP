@@ -17,7 +17,7 @@ organ.owner_id = user.id
 organ.save!
 puts "Add user #{user.email}"
 
-10.times do
+20.times do
   user = User.new(username: Faker::Internet.username, email: Faker::Internet.email, password: 'secret_password', password_confirmation: 'secret_password')
   user.save!
   organ = Organ.new(organ_type: Organ::TYPES.sample, city: 'Lyon', condition: 'Pas ouf', price: 20.0)
