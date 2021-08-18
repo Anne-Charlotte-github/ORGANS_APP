@@ -28,12 +28,12 @@
   <h3 class='titles'>Vos réservations ♥ (<%= @user.customer_bookings.count == 0 ? 0 : @user.customer_bookings.count %>)</h3>
 </div>
 
-<div>
+<div class='booking-resa'>
   <% @user.customer_bookings.each do |booking| %>
     <%= link_to organ_path(booking.organ) do %>
-      <div>
-        <%# <%= booking.photo.key %>
-        <p><%= booking.renting_at %></p>
+      <div class=booking-card>
+        <%= image_tag "https://images.unsplash.com/photo-1600408942710-9e0ccfe941c2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80", class: "booking-img" %>
+        <p class='card-text'><%= booking.renting_at %></p>
       </div>
     <% end %>
   <% end %>
