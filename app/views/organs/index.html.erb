@@ -12,7 +12,10 @@
 
 
 <%# cards %>
-<div class="container organ-container">
+<div class="container cart-container">
+
+
+<div>
   <% @organs.each do |organ| %>
     <%= link_to organ_path(organ) do %>
       <div>
