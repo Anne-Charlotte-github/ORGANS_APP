@@ -3,10 +3,10 @@
 
 <div class="container category-container">
   <% Organ::TYPES.each do |organ_type| %>
-    <div class='card-category'>
-      <%= image_tag "organs_picto/coeur.svg" %>
-      <%= link_to "#{organ_type.capitalize}", root_path('organ_type' => organ_type) %>
-    </div>
+      <%= link_to root_path('organ_type' => organ_type), class:'card-category' do %>
+        <%= image_tag "organs_picto/#{organ_type}.svg" %>
+        <p class="text-if-hover"> <%= organ_type.capitalize %> </p>
+      <% end  %>
   <% end %>
 </div>
 

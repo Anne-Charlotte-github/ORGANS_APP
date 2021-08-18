@@ -2,8 +2,8 @@
 
 <%# Logo vers Home %>
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to root_path, class: "navbar-brand" do %> <%# ! ajouter le PATH ? %>
-  <%= image_tag "main-logo.jpg" %> <%# ! notre logo from assets %>
+  <%= link_to root_path, class: "navbar-brand" do %>
+  <%= image_tag "main-logo.jpg" %>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -12,7 +12,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-<%# From to Search %>
+<%# Form to Search %>
 <div>Quel organe voulez-vous ?</div>
   <form class="d-flex">
       <input class="form-control" list="typeDatalistOptions" id="typeDataList" placeholder="Choisir un organe">
