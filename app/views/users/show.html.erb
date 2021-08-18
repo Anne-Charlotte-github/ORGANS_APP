@@ -5,7 +5,7 @@
 <hr>
 
 <div>
-  <h3>Vos organes🩸(<%= @user.owner_organs.count %>)</h3>
+  <h3>Vos organes🩸(<%= @user.owner_organs.count == 0 ? 0 : @user.owner_organs.count %>)</h3>
 </div>
 
 <div>
@@ -25,7 +25,7 @@
 <hr>
 
 <div>
-  <h3>Vos réservations ♥ (<%= @user.customer_bookings.count %>)</h3>
+  <h3>Vos réservations ♥ (<%= @user.customer_bookings.count == 0 ? 0 : @user.customer_bookings.count %>)</h3>
 </div>
 
 <div>
