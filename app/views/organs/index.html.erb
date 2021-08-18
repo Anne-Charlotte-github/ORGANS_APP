@@ -1,6 +1,6 @@
 <div><%= render 'shared/banner' %> </div>
-<%# categories %>
 
+<%# CATEGORIES CARDS %>
 <div class="container category-container">
   <% Organ::TYPES.each do |organ_type| %>
       <%= link_to root_path('organ_type' => organ_type), class:'card-category' do %>
@@ -10,20 +10,16 @@
   <% end %>
 </div>
 
-
-<%# cards %>
-<div class="container cart-container">
-
-
-<div>
+<%# ORGAN CARDS %>
+<div class="container organ-container">
   <% @organs.each do |organ| %>
-    <%= link_to organ_path(organ) do %>
-      <div>
-        <%# <%= raise %>
-        <%# <%= organ.photo.key  %>
-        <p><%= organ.organ_type %></p>
+    <%= link_to organ_path(organ), class:'card-organ' do %>
+      <%= image_tag "organs_picto/#{organ.organ_type}.svg" %> <%# TODO : upload images %>
+      <div class="card-organ-infos"> <%# TODO : class css %>
+        <h2><%= organ.organ_type %></h2>
         <p><%= "#{organ.price} €" %></p>
       </div>
+      <div class="text-if-hover">Réserver</div>
     <% end %>
   <% end %>
 </div>
