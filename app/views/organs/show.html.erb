@@ -9,7 +9,7 @@
   <div>
     <h2>Organ informations</h2>
     <p><%= @organ.condition %></p>
-    <p><%= @organ.price %></p>
+    <p><%= "#{@organ.price} €" %></p>
   </div>
   <div>
     <%= render 'organs/form' %>
