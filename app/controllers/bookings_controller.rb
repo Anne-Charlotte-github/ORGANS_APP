@@ -12,9 +12,15 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    booking = Booking.find(params[:id])
+    booking.update(params_booking)
+    redirect_to organ_path(params[:organ_id])
+  end
+
   private
 
   def params_booking
-    params.require(:booking).permit(:renting_at)
+    params.require(:booking).permit(:rating, :renting_at)
   end
 end

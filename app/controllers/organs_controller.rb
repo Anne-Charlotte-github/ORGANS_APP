@@ -12,5 +12,13 @@ class OrgansController < ApplicationController
   def show
     @organ = Organ.find(params[:id])
     @booking = Booking.new
+    @user_booking = current_user.customer_bookings.last
+    rated_bookings = @organ.bookings.reject { |booking| booking.rating.nil? }
+    @ratings = rated_bookings.map(&:rating)
+    if @ratings == []
+      @rating = 0
+    else
+      @rating = (@ratings.sum / @ratings.count).round(2)
+    end
   end
 end

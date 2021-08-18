@@ -1,7 +1,13 @@
-<div>
+<div class='container'>
   <div>
     <h2><%= @organ.organ_type %></h2>
-    <p><%= @organ.city %></p>
+    <div>
+      <div>
+        <p>⭐<%= @rating %></p>
+        <p>(<%= @ratings.count %> <%= @ratings.count <= 1 ? 'commentaire' : 'commentaires' %>)</p>
+      </div>
+      <p><%= @organ.city %></p>
+    </div>
   </div>
   <div>
   <h2><%= @organ.owner.username %></h2>
@@ -12,6 +18,19 @@
     <p><%= "#{@organ.price} €" %></p>
   </div>
   <div>
-    <%= render 'organs/form' %>
+    <% if @organ.owner_id != current_user.id %>
+      <%= form_for [ @organ, @booking ] do |f| %>
+        <%= f.date_field :renting_at, min: Date.today %>
+        <%= f.submit "Book" %>
+      <% end %>
+    <% end %>
+  </div>
+  <div>
+    <% if @user_booking && @user_booking.organ_id == @organ.id && !@user_booking.rating %>
+      <%= form_for [ @organ, @user_booking ], url: organ_booking_path(@organ, @user_booking), method: :patch do |f| %>
+        <%= f.number_field :rating, in: 0..5, step: 0.1 %>
+        <%= f.submit "Add a rating" %>
+      <% end %>
+    <% end %>
   </div>
 </div>
