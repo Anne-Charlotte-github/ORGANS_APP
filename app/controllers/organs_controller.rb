@@ -1,17 +1,20 @@
 class OrgansController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   def index
-    if params[:category].present?
-      @organs = Organ.where(organ_type: params[:category])
+    if params[:organ_type].present?
+      @organs = Organ.where(organ_type: params[:organ_type])
     else
       @organs = Organ.all
     end
     if params[:city].present?
       @organs = @organs.where(city: params[:city])
     end
-    # if params[:date].present?
-    #   @organs = @organs.where(renting_at: params[:date])
-    # end
+    if params[:date].present?
+      # Could be refacto with outer join
+      @organs = @organs.select do |organ|
+        !organ.bookings.map(&:renting_at).include?(Date.parse(params[:date]))
+      end
+    end
   end
 
   def show

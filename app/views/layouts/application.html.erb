@@ -29,22 +29,24 @@
     <%# Center: SEARCHBAR %>
     <div>Quel organe voulez-vous ?</div>
       <%= simple_form_for :search, method: :get,
+                                   url: organs_path,
                                    html: { class: 'd-flex my-3' }, defaults: {required: false} do |f| %>
-        <%= f.input :category, collection: Organ::TYPES,
-                               selected: params.dig(:category),
+        <%= f.input :organ_type, collection: Organ::TYPES,
+                               selected: params.dig(:organ_type),
                                include_blank: true,
                                label: false,
                                placeholder: "Categorie",
-                               input_html: {name: :category,} %>
+                               input_html: {name: :organ_type,} %>
         <%= f.input :city, collection: Organ::CITIES,
                            selected: params.dig(:city),
                            include_blank: true,
                            label: false,
                            placeholder: "Ville",
-                           input_html: {name: :city,} %>
+                           input_html: {name: :city} %>
         <%= f.input :date, as: :date,
                            label: false,
-                           html5: true %>
+                           html5: true,
+                           input_html: {name: :date, value: params.dig(:date)} %>
         <div>
           <%= f.submit "Search 🔍", class: "btn btn-gradient"  %>
         </div>
