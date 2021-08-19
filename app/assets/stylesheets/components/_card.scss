@@ -7,11 +7,9 @@
     text-decoration: none;
   }
 }
-
 .booking-resa :hover {
   opacity: 0.9;
 }
-
 .booking-card {
   background: white;
   overflow: hidden;
@@ -21,7 +19,6 @@
   aspect-ratio: 1/1;
   border-radius: 5px;
 }
-
 .booking-img {
   background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3));
   height: 150px;
@@ -29,7 +26,6 @@
   object-fit: cover;
   object-position: top;
 }
-
 .card-text {
   color: black;
   text-align: center;
@@ -38,7 +34,7 @@
     text-decoration: none;
 }
 
-// CATEGORY CARD //
+// CATEGORY CARD - Linked to : _container > .category-container//
 .card-category{
   width: 100%;
   margin-top: 20px;
@@ -55,7 +51,6 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-
   img {
     display: block;
   }
@@ -75,7 +70,7 @@
   }
 }
 
-// ORGAN CARD //
+// ORGAN CARD - Linked to : _container > .organ-container//
 .card-organ {
   overflow: hidden;
   height: 80px;

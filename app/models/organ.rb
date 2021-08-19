@@ -4,4 +4,7 @@ class Organ < ApplicationRecord
 
   TYPES = ['poumon', 'coeur', 'foie', 'cerveau', 'rein', 'burnasse']
   CITIES = ['Lyon', 'Bourk-en-Bresse', 'Guilherand-Granges', 'Mions', 'Soucieu-en-Jarrest']
+  DISEASES = ['pica', 'hypertrichose', 'syndrome du zombie', 'elephantiasis', 'progéria', 'potomanie', 'otite du cul']
+  BLOOD_GROUPS = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-']
+  CONDITIONS = ['pourrie', 'correct', 'bon etat', 'parfait']
 end
