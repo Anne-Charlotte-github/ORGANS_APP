@@ -32,6 +32,7 @@ class_mates.each do |class_mate|
                   password: 'secret_password',
                   password_confirmation: 'secret_password')
   user.save!
+
   rand(6).times do
     organ = Organ.new(organ_type: Organ::TYPES.sample,
                       city: Organ::CITIES.sample,
