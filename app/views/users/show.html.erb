@@ -8,15 +8,13 @@
   <h3 class='titles'>Vos organes🩸(<%= @user.owner_organs.count == 0 ? 0 : @user.owner_organs.count %>)</h3>
 </div>
 
-<div>
+<div class="container organ-container">
   <% @user.owner_organs.each do |organ| %>
-    <%= link_to organ_path(organ) do %>
-      <div>
-        <%# <%= organ.photo.key %>
-        <p><%= organ.organ_type.capitalize %></p><br>
-        <p><%= organ.condition %></p><br>
-        <p><%= organ.city %></p><br>
-        <p><%= "#{organ.price} €" %></p><br>
+    <%= link_to organ_path(organ), class:'card-organ' do %>
+        <%= image_tag "organs_picto/#{organ.organ_type}.svg" %>
+      <div class="card-organ-infos card-organ-infos-user">
+        <h2><%= organ.organ_type %></h2>
+        <p><%= "#{organ.price} €" %></p>
       </div>
     <% end %>
   <% end %>
@@ -30,11 +28,9 @@
 
 <div class='booking-resa'>
   <% @user.customer_bookings.each do |booking| %>
-    <%= link_to organ_path(booking.organ) do %>
-      <div class=booking-card>
+    <%= link_to organ_path(booking.organ),class: "booking-card" do %>
         <%= image_tag "organs_picto/#{booking.organ.organ_type}.svg", class: "booking-img" %>
         <p class='card-text'><%= booking.renting_at %></p>
-      </div>
     <% end %>
   <% end %>
 </div>
