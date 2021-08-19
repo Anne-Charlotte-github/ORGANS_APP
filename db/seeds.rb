@@ -5,24 +5,43 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Booking.destroy_all
 Organ.destroy_all
 User.destroy_all
 puts 'Clear db'
 
+class_mates = ['Léo Genuit', 'Simon Granger', 'Nicolas Feuerstein', 'Michael Grosheny', 'Jonathan Kerbrat', 'Clément Moréno', 'Anne-Charlotte Morizot', 'Thi Thu Ha Nguyen']
+
 user = User.new(username: 'Nathan', email: 'toto@gmail.com', password: '123456', password_confirmation: '123456')
 
 user.save!
-organ = Organ.new(organ_type: Organ::TYPES.sample, city: 'Bourg en Bresse', condition: 'Pas ouf', price: 20.0)
+organ = Organ.new(organ_type: Organ::TYPES.sample,
+                  city: 'Bourg en Bresse',
+                  condition: Organ::CONDITION.sample,
+                  price: rand(1000),
+                  disease: Organ::DISEASE.sample,
+                  blood_group: Organ::BLOOD_GROUP.sample)
+
 organ.owner_id = user.id
 organ.save!
 puts "Add user #{user.email}"
 
-20.times do
-  user = User.new(username: Faker::Internet.username, email: Faker::Internet.email, password: 'secret_password', password_confirmation: 'secret_password')
+class_mates.each do |class_mate|
+  user = User.new(username: class_mate,
+                  email: Faker::Internet.email,
+                  password: 'secret_password',
+                  password_confirmation: 'secret_password')
   user.save!
-  organ = Organ.new(organ_type: Organ::TYPES.sample, city: 'Lyon', condition: 'Pas ouf', price: 20.0)
-  organ.owner_id = user.id
-  organ.save!
+  rand(6).times do
+    organ = Organ.new(organ_type: Organ::TYPES.sample,
+                      city: Organ::CITIES.sample,
+                      condition: Organ::CONDITION.sample,
+                      price: rand(1000),
+                      disease: Organ::DISEASE.sample,
+                      blood_group: Organ::BLOOD_GROUP.sample)
+    organ.owner_id = user.id
+    organ.save!
+  end
   puts "Add user #{user.email}"
 end
 puts 'Finish'
