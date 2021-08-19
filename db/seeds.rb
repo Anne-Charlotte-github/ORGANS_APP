@@ -19,8 +19,8 @@ organ = Organ.create!(
   condition: Organ::CONDITIONS.sample,
   price: rand(1000),
   disease: Organ::DISEASES.sample,
-  blood_group: Organ::BLOOD_GROUPS.sample)
-  owner: nathan,
+  blood_group: Organ::BLOOD_GROUPS.sample,
+  owner: nathan
 )
 puts "Add user #{nathan.email}"
 
