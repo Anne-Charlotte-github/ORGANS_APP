@@ -1,10 +1,12 @@
 <%# BANNER %>
-<div class="banner-perso">
-  <div class="container">
-    <h1>Envie de rester <strong> en vie </strong> ? </h1>
-    <p> Louer des organes avec Orgarent !</p>
+<% if current_page?(root_path) %>
+  <div class="banner-perso">
+    <div class="container">
+      <h1>Envie de rester <strong> en vie </strong> ? </h1>
+      <p> Louer des organes avec Orgarent !</p>
+    </div>
   </div>
-</div>
+<% end %>
 
 <%# CATEGORIES CARDS %>
 <div class="container category-container">
