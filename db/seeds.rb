@@ -17,10 +17,10 @@ user = User.new(username: 'Nathan', email: 'toto@gmail.com', password: '123456',
 user.save!
 organ = Organ.new(organ_type: Organ::TYPES.sample,
                   city: 'Bourg en Bresse',
-                  condition: Organ::CONDITION.sample,
+                  condition: Organ::CONDITIONS.sample,
                   price: rand(1000),
-                  disease: Organ::DISEASE.sample,
-                  blood_group: Organ::BLOOD_GROUP.sample)
+                  disease: Organ::DISEASES.sample,
+                  blood_group: Organ::BLOOD_GROUPS.sample)
 
 organ.owner_id = user.id
 organ.save!
@@ -35,10 +35,10 @@ class_mates.each do |class_mate|
   rand(6).times do
     organ = Organ.new(organ_type: Organ::TYPES.sample,
                       city: Organ::CITIES.sample,
-                      condition: Organ::CONDITION.sample,
+                      condition: Organ::CONDITIONS.sample,
                       price: rand(1000),
-                      disease: Organ::DISEASE.sample,
-                      blood_group: Organ::BLOOD_GROUP.sample)
+                      disease: Organ::DISEASES.sample,
+                      blood_group: Organ::BLOOD_GROUPS.sample)
     organ.owner_id = user.id
     organ.save!
   end
