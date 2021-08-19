@@ -1,10 +1,9 @@
 class OrgansController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   def index
+    @organs = Organ.where.not(owner: current_user)
     if params[:organ_type].present?
-      @organs = Organ.where(organ_type: params[:organ_type])
-    else
-      @organs = Organ.all
+      @organs = @organs.where(organ_type: params[:organ_type])
     end
     if params[:city].present?
       @organs = @organs.where(city: params[:city])
