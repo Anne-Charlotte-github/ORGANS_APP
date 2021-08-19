@@ -45,8 +45,4 @@ class_mates.each do |class_mate|
   puts "Add user #{user.email}"
 end
 
-Booking.create(organ: Organ.last, customer_id: nathan.id, renting_at: Date.today)
-Booking.create(organ: Organ.first, customer_id: nathan.id, renting_at: (Date.today - 2) )
-
-
 puts 'Finish'

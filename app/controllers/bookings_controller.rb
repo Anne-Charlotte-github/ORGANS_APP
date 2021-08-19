@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
   def update
     booking = Booking.find(params[:id])
     booking.update(params_booking)
+    flash[:notice] = "Merci pour votre retour ❤️"
     redirect_to organ_path(params[:organ_id])
   end
 
