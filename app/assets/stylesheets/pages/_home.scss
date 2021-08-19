@@ -1,1 +1,23 @@
 // Specific CSS for your home-page
+
+// BANNER //
+.banner-perso {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  background-image : linear-gradient(rgba(0, 0, 0, 0.01),rgba(0,0,0,0.4)),
+              asset-url('banner-image.jpg');
+}
+.banner-perso h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+.banner-perso p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
