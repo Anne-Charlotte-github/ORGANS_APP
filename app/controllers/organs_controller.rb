@@ -1,12 +1,17 @@
 class OrgansController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   def index
-    organ_type = params[:organ_type]
-    if organ_type.present?
-      @organs = Organ.where(organ_type: organ_type)
+    if params[:category].present?
+      @organs = Organ.where(organ_type: params[:category])
     else
       @organs = Organ.all
     end
+    if params[:city].present?
+      @organs = @organs.where(city: params[:city])
+    end
+    # if params[:date].present?
+    #   @organs = @organs.where(renting_at: params[:date])
+    # end
   end
 
   def show
