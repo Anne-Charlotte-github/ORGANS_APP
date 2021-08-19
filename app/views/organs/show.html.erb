@@ -1,17 +1,80 @@
-<div>
-  <div>
-    <h2><%= @organ.organ_type %></h2>
-    <p><%= @organ.city %></p>
+<div class='container'>
+  <div id='organ-title'>
+    <h2><%= @organ.organ_type.capitalize %></h2>
+    <div class='organ-title-rating'>
+      <p><i class="fas fa-star"></i> <%= @rating_organ %></p>
+      <p>(<%= @ratings.count %> <%= @ratings.count <= 1 ? 'commentaire' : 'commentaires' %>)</p>
+      <p> • <%= @organ.city %></p>
+    </div>
+  </div>
+  <div id='imge-grid'>
+    <img src="https://picsum.photos/730/420" alt="">
+    <div>
+      <img src="https://picsum.photos/360/200" alt="">
+      <img src="https://picsum.photos/360/200" alt="">
+    </div>
+  </div>
+  <div id='content'>
+    <div id='organ-info'>
+      <div id='user'>
+        <img class='avatar' src="https://picsum.photos/40/40" alt="">
+        <h2><%= @organ.owner.username.capitalize %></h2>
+        <p><i class="fas fa-star"></i> <%= @rating_owner %></p>
+      </div>
+      <div id='information'>
+        <div class='information-list'>
+          <h3><i class="fas fa-box-open"></i></h3>
+          <div>
+            <h4>Etat de l'organe</h4>
+            <p><%= @organ.condition %></p>
+          </div>
+        </div>
+        <div class='information-list'>
+          <h3><i class="fas fa-virus"></i></h3>
+          <div>
+            <h4>Maladie potentiel</h4>
+            <p>Otite du cul</p>
+          </div>
+        </div>
+        <div class='information-list'>
+          <h3><i class="fas fa-tint"></i></h3>
+          <div>
+            <h4>Groupe sanguin</h4>
+            <p>A+</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <% if @organ.owner_id != current_user.id %>
+        <div id='booking-card'>
+          <div id='booking-card-head'>
+            <div class='organ-title-rating' id='price'>
+              <h3><%= "#{@organ.price}€" %></h3>
+              <p>/jour</p>
+            </div>
+          </div>
+            <%= form_for [ @organ, @booking ] do |f| %>
+              <%= f.date_field :renting_at, min: Date.today %>
+              <%= f.submit "Réserver" %>
+            <% end %>
+        </div>
+      <% end %>
+      <% if @user_booking && @user_booking.organ_id == @organ.id && !@user_booking.rating %>
+        <div id='booking-card'>
+          <div id='booking-card-head'>
+            <div class='organ-title-rating' id='price'>
+              <h3>Ajouter une note</h3>
+            </div>
+          </div>
+            <%= form_for [ @organ, @user_booking ], url: organ_booking_path(@organ, @user_booking), method: :patch do |f| %>
+              <%= f.select :rating, options_for_select(0..5) %>
+              <%= f.submit "Noter" %>
+            <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
   <div>
-  <h2><%= @organ.owner.username %></h2>
-  </div>
-  <div>
-    <h2>Organ informations</h2>
-    <p><%= @organ.condition %></p>
-    <p><%= "#{@organ.price} €" %></p>
-  </div>
-  <div>
-    <%= render 'organs/form' %>
   </div>
 </div>
