@@ -1,5 +1,6 @@
 // BOOKING CARD //
 .booking-resa {
+  background: white;
   padding-top: 10px;
   display: flex;
   justify-content: space-around;
@@ -20,11 +21,12 @@
   border-radius: 5px;
 }
 .booking-img {
-  background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3));
+  background: white;
+  // background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3));
   height: 150px;
   width: 100%;
   object-fit: cover;
-  object-position: top;
+  object-position: center;
 }
 .card-text {
   color: black;
