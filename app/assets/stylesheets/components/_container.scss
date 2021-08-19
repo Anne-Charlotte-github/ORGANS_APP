@@ -14,3 +14,13 @@
   grid-gap: 1rem;
   grid-auto-rows: auto;
 }
+
+
+.organ-container-user {
+  margin-top: 10px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  grid-auto-rows: auto;
+}
