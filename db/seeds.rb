@@ -10,21 +10,21 @@ Organ.destroy_all
 User.destroy_all
 puts 'Clear db'
 
+nathan = User.new(username: 'Nathan', email: 'toto@gmail.com', password: '123456', password_confirmation: '123456')
+
+nathan.save!
+organ = Organ.create!(
+  organ_type: Organ::TYPES.sample,
+  city: 'Bourg en Bresse',
+  condition: Organ::CONDITIONS.sample,
+  price: rand(1000),
+  disease: Organ::DISEASES.sample,
+  blood_group: Organ::BLOOD_GROUPS.sample,
+  owner: nathan
+)
+puts "Add user #{nathan.email}"
+
 class_mates = ['Léo Genuit', 'Simon Granger', 'Nicolas Feuerstein', 'Michael Grosheny', 'Jonathan Kerbrat', 'Clément Moréno', 'Anne-Charlotte Morizot', 'Thi Thu Ha Nguyen']
-
-user = User.new(username: 'Nathan', email: 'toto@gmail.com', password: '123456', password_confirmation: '123456')
-
-user.save!
-organ = Organ.new(organ_type: Organ::TYPES.sample,
-                  city: 'Bourg en Bresse',
-                  condition: Organ::CONDITIONS.sample,
-                  price: rand(1000),
-                  disease: Organ::DISEASES.sample,
-                  blood_group: Organ::BLOOD_GROUPS.sample)
-
-organ.owner_id = user.id
-organ.save!
-puts "Add user #{user.email}"
 
 class_mates.each do |class_mate|
   user = User.new(username: class_mate,
@@ -44,4 +44,9 @@ class_mates.each do |class_mate|
   end
   puts "Add user #{user.email}"
 end
+
+Booking.create(organ: Organ.last, customer_id: nathan.id, renting_at: Date.today)
+Booking.create(organ: Organ.first, customer_id: nathan.id, renting_at: (Date.today - 2) )
+
+
 puts 'Finish'
