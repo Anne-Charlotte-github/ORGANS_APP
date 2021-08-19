@@ -34,6 +34,6 @@ class OrgansController < ApplicationController
       rating_organ = (ratings.sum / ratings.count).round(2) unless ratings == []
       ratings_organs << rating_organ if rating_organ
     end
-    @rating_owner = (ratings_organs.sum / ratings_organs.count).round(2)
+    @ratings == [] ? @rating_owner = 0 : @rating_owner = (ratings_organs.sum / ratings_organs.count).round(2)
   end
 end
