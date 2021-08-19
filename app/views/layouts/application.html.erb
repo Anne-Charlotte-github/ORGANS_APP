@@ -28,25 +28,27 @@
 
     <%# Center: SEARCHBAR %>
     <div>Quel organe voulez-vous ?</div>
-      <form class="d-flex">
-          <input class="form-control" list="typeDatalistOptions" id="typeDataList" placeholder="Choisir un organe">
-            <datalist id="typeDatalistOptions">
-              <option value="Peu importe...">
-              <% Organ::TYPES.each do |organ_type| %>
-                <option value=<%=organ_type.capitalize%>>
-              <% end %>
-            </datalist>
-          <input class="form-control" list="cityDatalistOptions" id="cityDataList" placeholder="Choisir une ville">
-            <datalist id="cityDatalistOptions">
-              <option value="Peu importe...">
-              <% Organ::CITIES.each do |city| %>
-                <option value=<%=city.capitalize%>>
-              <% end %>
-            </datalist>
-          <input class="form-control me-2" type="search" id="dateDataList" placeholder="Choisir un jour" aria-label="Search">
-
-          <button class="btn btn-gradient" type="submit"> 🔍 </button>
-      </form>
+      <%= simple_form_for :search, method: :get,
+                                   html: { class: 'd-flex my-3' }, defaults: {required: false} do |f| %>
+        <%= f.input :category, collection: Organ::TYPES,
+                               selected: params.dig(:category),
+                               include_blank: true,
+                               label: false,
+                               placeholder: "Categorie",
+                               input_html: {name: :category,} %>
+        <%= f.input :city, collection: Organ::CITIES,
+                           selected: params.dig(:city),
+                           include_blank: true,
+                           label: false,
+                           placeholder: "Ville",
+                           input_html: {name: :city,} %>
+        <%= f.input :date, as: :date,
+                           label: false,
+                           html5: true %>
+        <div>
+          <%= f.submit "Search 🔍", class: "btn btn-gradient"  %>
+        </div>
+      <% end %>
 
     <%# On the right: USER ACCOUNT %>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
