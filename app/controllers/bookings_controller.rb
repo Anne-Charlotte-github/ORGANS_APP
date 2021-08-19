@@ -2,19 +2,15 @@ class BookingsController < ApplicationController
   def create
     @organ = Organ.find(params[:organ_id])
     @booking = Booking.new(params_booking)
-    @booking.organ_id = @organ.id
-    @booking.customer_id = current_user.id
-
-    if (@organ.owner_id != current_user.id) && @booking.save
-      redirect_to user_path(current_user.id)
-    else
-      render("organs/show") # and add an alert message for the user ?
-    end
+    @booking.organ = @organ
+    @booking.customer = current_user
+    save_booking(@organ, @booking)
   end
 
   def update
     booking = Booking.find(params[:id])
     booking.update(params_booking)
+    flash[:notice] = "Merci pour votre retour ❤️"
     redirect_to organ_path(params[:organ_id])
   end
 
@@ -22,5 +18,15 @@ class BookingsController < ApplicationController
 
   def params_booking
     params.require(:booking).permit(:rating, :renting_at)
+  end
+
+  def save_booking(organ, booking)
+    if (organ.owner_id != current_user.id) && booking.save
+      flash[:notice] = "Félicitations! Votre corps vous dit merci 👍"
+      redirect_to user_path(current_user.id)
+    else
+      redirect_to organ_path(params[:organ_id])
+      flash[:alert] = "Organe non disponible, saisissez une autre date"
+    end
   end
 end

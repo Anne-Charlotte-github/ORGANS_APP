@@ -30,14 +30,18 @@ class OrgansController < ApplicationController
   def organ_rating
     rated_bookings = @organ.bookings.reject { |booking| booking.rating.nil? }
     @ratings = rated_bookings.map(&:rating)
-    if @ratings == []
-      @rating_organ = 0
-    else
-      @rating_organ = (@ratings.sum / @ratings.count).round(2)
-    end
+    @ratings == [] ? @rating_organ = 0 : @rating_organ = (@ratings.sum / @ratings.count).round(2)
   end
 
   def owner_rating
-    'toto'
+    organs = @organ.owner.owner_organs
+    ratings_organs = []
+    organs.each do |organ|
+      rated_bookings = organ.bookings.reject { |booking| booking.rating.nil? }
+      ratings = rated_bookings.map(&:rating)
+      rating_organ = (ratings.sum / ratings.count).round(2) unless ratings == []
+      ratings_organs << rating_organ if rating_organ
+    end
+    @ratings == [] ? @rating_owner = 0 : @rating_owner = (ratings_organs.sum / ratings_organs.count).round(2)
   end
 end
