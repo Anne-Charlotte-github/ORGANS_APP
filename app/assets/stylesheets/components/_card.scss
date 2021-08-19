@@ -1,0 +1,121 @@
+// BOOKING CARD //
+.booking-resa {
+  display: flex;
+  justify-content: space-around;
+  & > a:hover {
+    text-decoration: none;
+  }
+}
+
+.booking-resa :hover {
+  opacity: 0.9;
+}
+
+.booking-card {
+  background: white;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 200px;
+  aspect-ratio: 1/1;
+  border-radius: 5px;
+}
+
+.booking-img {
+  background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3));
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.card-text {
+  color: black;
+  text-align: center;
+  font-size: 25px;
+  padding-top: 5px;
+    text-decoration: none;
+}
+
+// CATEGORY CARD //
+.card-category{
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-size: cover;
+  background-position: center;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+  img {
+    display: block;
+  }
+  .text-if-hover {
+    display: none;
+    font-weight: lighter;
+  }
+}
+
+.card-category:hover {
+  transition: all 2s ease-out;
+  .text-if-hover {
+    display: block;
+  }
+  img {
+    display: none;
+  }
+}
+
+// ORGAN CARD //
+.card-organ {
+  overflow: hidden;
+  height: 80px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  img {
+  height: auto;
+  width: 50%;
+  object-fit: cover;
+  }
+  h2 {
+  font-size: 10px;
+  font-weight: bold;
+  margin: 0;
+  }
+  p {
+  font-size: 8px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  }
+  .card-organ-infos {
+    padding: 16px;
+    display: block;
+  }
+  .text-if-hover {
+    display: none;
+    font-weight: lighter;
+    font: black;
+  }
+}
+
+.card-organ:hover {
+  transition: all 2s ease-out;
+  .card-organ-infos {
+    display: none;
+  }
+  .text-if-hover {
+    display: block;
+  }
+}

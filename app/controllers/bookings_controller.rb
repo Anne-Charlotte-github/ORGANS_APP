@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
     if (@organ.owner_id != current_user.id) && @booking.save
       redirect_to user_path(current_user.id)
     else
-      render("organs/show")
+      render("organs/show") # and add an alert message for the user ?
     end
   end
 
