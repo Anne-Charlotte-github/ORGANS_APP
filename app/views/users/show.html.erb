@@ -8,7 +8,7 @@
   <h3 class='titles'>Vos organes🩸(<%= @user.owner_organs.count == 0 ? 0 : @user.owner_organs.count %>)</h3>
 </div>
 
-<div class="container organ-container">
+<div class="container organ-container-user">
   <% @user.owner_organs.each do |organ| %>
     <%= link_to organ_path(organ), class:'card-organ' do %>
         <%= image_tag "organs_picto/#{organ.organ_type}.svg" %>
