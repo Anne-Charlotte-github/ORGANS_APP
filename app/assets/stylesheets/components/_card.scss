@@ -37,6 +37,7 @@
 
 // CATEGORY CARD - Linked to : _container > .category-container//
 .card-category{
+  background:white;
   width: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -118,8 +119,4 @@
   .text-if-hover {
     display: block;
   }
-}
-
-a:hover {
-  text-decoration: none;
 }
