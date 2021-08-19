@@ -6,7 +6,7 @@
   grid-template-columns: repeat(10, 1fr);
   grid-auto-rows: auto;
   gap: 1em;
-  padding-left: 5%;
+  padding-left: 2.5%;
   & > a:hover {
     text-decoration: none;
   }
@@ -15,8 +15,6 @@
   opacity: 0.9;
 }
 .booking-card {
-  // display: flex;
-  // flex-direction: column;
   background: white;
   overflow: hidden;
   background: white;
