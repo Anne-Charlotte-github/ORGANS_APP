@@ -11,13 +11,14 @@
 <%# CATEGORIES CARDS %>
 <div class="container category-container">
   <% Organ::TYPES.each do |organ_type| %>
-      <%= link_to root_path('organ_type' => organ_type), class:'card-category' do %>
+      <%= link_to root_path('organ_type' => organ_type, anchor: 'organs'), class:'card-category' do %>
         <%= image_tag "organs_picto/#{organ_type}.svg" %>
         <p class="text-if-hover"> <%= organ_type.capitalize %> </p>
       <% end %>
   <% end %>
 </div>
 
+<a id="organs"></a>
 <%# ORGAN CARDS %>
 <% if @organs.empty? %>
   <div id="search-failed"> Désolée, pas d'organe trouvé. Cherche encore !</div> <%# TODO : css de p %>
