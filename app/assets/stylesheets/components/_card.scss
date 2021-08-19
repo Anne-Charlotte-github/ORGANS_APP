@@ -11,27 +11,28 @@
   opacity: 0.9;
 }
 .booking-card {
+  // display: flex;
+  // flex-direction: column;
   background: white;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 200px;
-  aspect-ratio: 1/1;
+  width: 100px;
+  height: fit-content;
   border-radius: 5px;
 }
 .booking-img {
-  background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3));
-  height: 150px;
+  background: white;
+  height: 80px;
   width: 100%;
-  object-fit: cover;
-  object-position: top;
+  object-fit: contain;
+  object-position: center;
 }
 .card-text {
   color: black;
   text-align: center;
-  font-size: 25px;
-  padding-top: 5px;
-    text-decoration: none;
+  font-size: 15px;
+  text-decoration: none;
 }
 
 // CATEGORY CARD - Linked to : _container > .category-container//
@@ -111,7 +112,14 @@
   .card-organ-infos {
     display: none;
   }
+  .card-organ-infos-user {
+    display: block;
+  }
   .text-if-hover {
     display: block;
   }
+}
+
+a:hover {
+  text-decoration: none;
 }
