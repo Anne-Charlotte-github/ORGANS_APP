@@ -73,6 +73,7 @@
     <%# <-- Fin NAVBAR %>
 
     <%= yield %>
+    <%= render 'shared/flashes' %>
 
     <%# Début FOOTER --> %>
     <div class="footer footer-copyright">
@@ -80,6 +81,5 @@
     </div>
     <%# <-- Fin FOOTER %>
 
-    <p class="notice"><%= notice %></p>
   </body>
 </html>
