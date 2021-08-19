@@ -27,7 +27,7 @@
       <%= link_to organ_path(organ), class:'card-organ' do %>
         <%= image_tag "organs_picto/#{organ.organ_type}.svg" %> <%# TODO : upload images %>
         <div class="card-organ-infos">
-          <h2><%= organ.organ_type %></h2>
+          <h2><%= organ.organ_type.capitalize %></h2>
           <p><%= "#{organ.price} €" %></p>
         </div>
         <div class="text-if-hover">Réserver</div>
