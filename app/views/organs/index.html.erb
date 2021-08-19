@@ -21,7 +21,8 @@
 <a id="organs"></a>
 <%# ORGAN CARDS %>
 <% if @organs.empty? %>
-  <div id="search-failed"> Désolée, pas d'organe trouvé. Cherche encore !</div> <%# TODO : css de p %>
+  <div id="search-failed"> Désolée, pas d'organe trouvé. 😢 Cherche encore ! </div>
+
 <% else %>
   <div class="container organ-container">
     <% @organs.each do |organ| %>

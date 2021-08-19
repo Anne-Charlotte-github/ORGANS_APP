@@ -5,20 +5,20 @@
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 1rem;
   grid-auto-rows: auto;
-  margin-top: 30px;
 }
 
 
 .category-container {
-    background: #C7E6F4;
+    background: #658ea7; // DEC7AA
     width: 1110px;
+    height: 135px ;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-gap: 1rem;
     grid-auto-rows: auto;
     border-color: black;
     border-radius: 20px;
-    margin-top: 30px;
+    margin: 30px auto;
 }
 
 
