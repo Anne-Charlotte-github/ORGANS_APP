@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
 
   def save_booking(organ, booking)
     if (organ.owner_id != current_user.id) && booking.save
-      flash[:notice] = "Félicitation! Votre corps vous dit merci 👍"
+      flash[:notice] = "Félicitations! Votre corps vous dit merci 👍"
       redirect_to user_path(current_user.id)
     else
       redirect_to organ_path(params[:organ_id])
