@@ -31,7 +31,7 @@ puts "Add user #{nathan.email}"
 end
 
 Booking.create(organ: Organ.last, customer_id: nathan.id, renting_at: Date.today)
-Booking.create(organ: Organ.last, customer_id: nathan.id, renting_at: (Date.today - 2) )
+Booking.create(organ: Organ.first, customer_id: nathan.id, renting_at: (Date.today - 2) )
 
 
 puts 'Finish'
