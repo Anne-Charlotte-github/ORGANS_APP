@@ -8,8 +8,9 @@
   </div>
 <% end %>
 
+<div class='container'>
 <%# CATEGORIES CARDS %>
-<div class="container category-container">
+<div class="container category-container" id='toto'>
   <% Organ::TYPES.each do |organ_type| %>
       <%= link_to root_path('organ_type' => organ_type, anchor: 'organs'), class:'card-category' do %>
         <%= image_tag "organs_picto/#{organ_type}.svg" %>
@@ -23,7 +24,7 @@
 <% if @organs.empty? %>
   <div id="search-failed"> Désolée, pas d'organe trouvé. 😢 Cherche encore ! </div>
 <% else %>
-  <div class="container organ-container">
+  <div class="organ-container">
     <% @organs.each do |organ| %>
       <%= link_to organ_path(organ,date: params[:date]), class:'card-organ' do %>
         <% if organ.photo.attached? %>
@@ -35,7 +36,7 @@
           <h2><%= organ.organ_type.capitalize %></h2>
           <p id="price"><%= "#{organ.price} € / j" %></p>
           <p class="username"><%= "Vendu par :" %></p>
-          <p class="username"><%= organ.owner.username.capitalize %></p>
+          <p class="username"><strong><%= organ.owner.username.capitalize %></strong></p>
 
         </div>
         <div id="text-if-hover">Voir l'organe</div>
@@ -43,3 +44,4 @@
     <% end %>
   </div>
 <% end %>
+</div>

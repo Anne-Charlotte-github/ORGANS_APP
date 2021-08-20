@@ -11,8 +11,8 @@
     <%# <img src="https://picsum.photos/730/420" alt=""> %>
     <%= cl_image_tag @organ.photo.key, height: 420, width: 730, crop: :fill %>
     <div>
-      <img src="https://picsum.photos/360/200" alt="">
-      <img src="https://picsum.photos/360/200" alt="">
+      <%= cl_image_tag @organ.photo.key, height: 200, width: 360, crop: :fill %>
+      <%= cl_image_tag @organ.photo.key, height: 200, width: 360, crop: :fill %>
     </div>
   </div>
   <div id='content'>
