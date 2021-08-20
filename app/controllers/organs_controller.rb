@@ -43,4 +43,8 @@ class OrgansController < ApplicationController
     end
     @ratings == [] ? @rating_owner = 0 : @rating_owner = (ratings_organs.sum / ratings_organs.count).round(2)
   end
+
+  def organ_params
+    params.require(:organ).permit(:organ_type, :city, :condition,:price,:disease,:blood_group, :photo)
+  end
 end
