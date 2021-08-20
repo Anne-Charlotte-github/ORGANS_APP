@@ -1,3 +1,4 @@
+<div class='container'>
 <div class='titles'>
   <h2><strong>Bonjour, super <%= @user.username %>!!</strong></h2>
 </div>
@@ -34,8 +35,13 @@
 <div class='booking-resa'>
   <% @bookings.each do |booking| %>
     <%= link_to organ_path(booking.organ),class: "booking-card" do %>
-        <%= image_tag "organs_picto/#{booking.organ.organ_type}.svg", class: "booking-img" %>
+        <% if booking.organ.photo.attached? %>
+          <%= cl_image_tag booking.organ.photo.key, height: 300, width: 400, crop: :fill, class: "booking-img" %> <%# TODO : upload images %>
+        <% else %>
+          <%= image_tag "organs_picto/#{booking.organ.organ_type}.svg" %>
+        <% end %>
         <p class='card-text'><%= booking.renting_at.strftime("%d/%m/%Y") %></p>
     <% end %>
   <% end %>
+</div>
 </div>

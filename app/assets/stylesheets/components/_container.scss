@@ -9,7 +9,7 @@
 
 
 .category-container {
-    background: #658ea7; // DEC7AA
+    background: #C6E5F3; // DEC7AA
     width: 1110px;
     height: 135px ;
     display: grid;
@@ -17,7 +17,7 @@
     grid-gap: 1rem;
     grid-auto-rows: auto;
     border-color: black;
-    border-radius: 20px;
+    border-radius: 8px;
     margin: 30px auto;
 }
 
@@ -31,4 +31,9 @@
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
   grid-auto-rows: auto;
+}
+
+#toto {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
