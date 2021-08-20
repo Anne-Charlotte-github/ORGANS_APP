@@ -22,11 +22,10 @@
 <%# ORGAN CARDS %>
 <% if @organs.empty? %>
   <div id="search-failed"> Désolée, pas d'organe trouvé. 😢 Cherche encore ! </div>
-
 <% else %>
   <div class="container organ-container">
     <% @organs.each do |organ| %>
-      <%= link_to organ_path(organ), class:'card-organ' do %>
+      <%= link_to organ_path(organ,date: params[:date]), class:'card-organ' do %>
         <%= image_tag "organs_picto/#{organ.organ_type}.svg" %> <%# TODO : upload images %>
         <div class="card-organ-infos">
           <h2><%= organ.organ_type.capitalize %></h2>
