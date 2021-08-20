@@ -11,7 +11,11 @@
 <div class="container organ-container-user">
   <% @organs.each do |organ| %>
     <%= link_to organ_path(organ), class:'card-organ' do %>
-        <%= image_tag "organs_picto/#{organ.organ_type}.svg" %>
+        <% if organ.photo.attached? %>
+          <%= cl_image_tag organ.photo.key, height: 300, width: 400, crop: :fill %> <%# TODO : upload images %>
+        <% else %>
+          <%= image_tag "organs_picto/#{organ.organ_type}.svg" %>
+        <% end %>
       <div class="card-organ-infos card-organ-infos-user">
         <h2><%= organ.organ_type.capitalize %></h2>
         <p><%= "#{organ.price} €" %></p>
@@ -19,6 +23,7 @@
     <% end %>
   <% end %>
 </div>
+
 
 <hr>
 
