@@ -19,6 +19,7 @@ class OrgansController < ApplicationController
   def show
     @organ = Organ.find(params[:id])
     @booking = Booking.new
+    @booking.renting_at = params[:date]
     @user_booking = current_user.customer_bookings.last
     organ_rating
     owner_rating

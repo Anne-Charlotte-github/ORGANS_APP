@@ -5,11 +5,11 @@
 <hr>
 
 <div>
-  <h3 class='titles'>Vos organes 🧠 (<%= @user.owner_organs.count == 0 ? 0 : @user.owner_organs.count %>)</h3>
+  <h3 class='titles'>Vos organes 🧠 (<%= @organs.count == 0 ? 0 : @organs.count %>)</h3>
 </div>
 
 <div class="container organ-container-user">
-  <% @user.owner_organs.each do |organ| %>
+  <% @organs.each do |organ| %>
     <%= link_to organ_path(organ), class:'card-organ' do %>
         <% if organ.photo.attached? %>
           <%= cl_image_tag organ.photo.key, height: 300, width: 400, crop: :fill %> <%# TODO : upload images %>
@@ -17,7 +17,7 @@
           <%= image_tag "organs_picto/#{organ.organ_type}.svg" %>
         <% end %>
       <div class="card-organ-infos card-organ-infos-user">
-        <h2><%= organ.organ_type %></h2>
+        <h2><%= organ.organ_type.capitalize %></h2>
         <p><%= "#{organ.price} €" %></p>
       </div>
     <% end %>
@@ -28,14 +28,14 @@
 <hr>
 
 <div>
-  <h3 class='titles'>Vos réservations 🖤 (<%= @user.customer_bookings.count == 0 ? 0 : @user.customer_bookings.count %>)</h3>
+  <h3 class='titles'>Vos réservations 🖤 (<%= @bookings.count == 0 ? 0 : @bookings.count %>)</h3>
 </div>
 
 <div class='booking-resa'>
-  <% @user.customer_bookings.each do |booking| %>
+  <% @bookings.each do |booking| %>
     <%= link_to organ_path(booking.organ),class: "booking-card" do %>
         <%= image_tag "organs_picto/#{booking.organ.organ_type}.svg", class: "booking-img" %>
-        <p class='card-text'><%= booking.renting_at %></p>
+        <p class='card-text'><%= booking.renting_at.strftime("%d/%m/%Y") %></p>
     <% end %>
   <% end %>
 </div>

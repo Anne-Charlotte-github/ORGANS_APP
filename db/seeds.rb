@@ -24,7 +24,8 @@ nathan.save!
 # )
 puts "Add user #{nathan.email}"
 
-class_mates = ['Léo Genuit', 'Simon Granger', 'Nicolas Feuerstein', 'Michael Grosheny', 'Jonathan Kerbrat', 'Clément Moréno', 'Anne-Charlotte Morizot', 'Thi Thu Ha Nguyen']
+# class_mates = ['Léo Genuit', 'Simon Granger', 'Nicolas Feuerstein', 'Michael Grosheny', 'Jonathan Kerbrat', 'Clément Moréno', 'Anne-Charlotte Morizot', 'Thi Thu Ha Nguyen']
+class_mates = ['Léo', 'Simon', 'Nicolas', 'Michael', 'Jonathan', 'Clément', 'Anne-Charlotte', 'Thi Thu Ha']
 
 class_mates.each do |class_mate|
   user = User.new(username: class_mate,

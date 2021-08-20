@@ -91,10 +91,16 @@
   font-size: 20px;
   font-weight: bold;
   margin: 0;
-  color: #ff8ca0;
+  color: #f33d5bd3;
   }
   p {
   font-size: 15px;
+  line-height: 1.4;
+  margin-bottom: 0;
+  color: rgba(0, 0, 0, 0.616);
+  }
+  .username{
+  font-size: 10px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
@@ -104,11 +110,14 @@
     padding: 16px;
     display: block;
   }
-  .text-if-hover {
+  #text-if-hover {
     display: none;
-    font-size: 16px;
-    color: black;
+    padding: 16px;
+    font-size: 18px;
+    color: #648da5;
     margin: 0;
+    justify-content: center;
+
   }
 }
 
@@ -120,7 +129,7 @@
   .card-organ-infos-user {
     display: block;
   }
-  .text-if-hover {
+  #text-if-hover {
     display: block;
   }
 }
